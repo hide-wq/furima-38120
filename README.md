@@ -34,15 +34,13 @@
 
 - belongs_to :user
 - belongs_to :pay_forms
-- belongs_to :Purchase_historys
+- has_one :Purchase_historys
 
 
 ## pay_forms
 
 | Column                | Type                | Options                       |
 |-----------------------|---------------------|-------------------------------|
-| user                  | integer             | null: false, foreign_key: true|
-| items                 | integer             | null: false, foreign_key: true|
 | number                | integer             | null: false                   |
 | exp_month             | integer             | null: false                   |
 | exp_year              | integer             | null: false                   |
@@ -67,4 +65,16 @@
 ### Association
 
 - belongs_to :pay_forms
-- belongs_to :Purchase_historys
+- has_one :Purchase_historys
+
+## Purchase_historys
+| Column                | Type                | Options                       |
+|-----------------------|---------------------|-------------------------------|
+| user                  | references          | null: false, foreign_key: true|
+| items                 | references          | null: false, foreign_key: true|
+
+### Association
+
+- has_many :users
+- belongs_to :items
+- belongs_to :addresses
