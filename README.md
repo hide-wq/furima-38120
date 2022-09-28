@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :items
-- has_many :Purchase_historys
+- has_one :orders
 
 ## items
 
@@ -33,25 +33,10 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :pay_forms
-- has_one :Purchase_historys
+- has_one :orders
 
 
-## pay_forms
-
-| Column                | Type                | Options                       |
-|-----------------------|---------------------|-------------------------------|
-| number                | integer             | null: false                   |
-| exp_month             | integer             | null: false                   |
-| exp_year              | integer             | null: false                   |
-| cvc                   | integer             | null: false                   |
-
-### Association
-
-- belongs_to :addresses
-- belongs_to :items
-
-## addresses
+## destinations
 
 | Column                | Type                | Options                       |
 |-----------------------|---------------------|-------------------------------|
@@ -64,8 +49,7 @@
 
 ### Association
 
-- belongs_to :pay_forms
-- has_one :Purchase_historys
+- belongs_to :orders
 
 ## Purchase_historys
 | Column                | Type                | Options                       |
@@ -75,6 +59,6 @@
 
 ### Association
 
-- has_many :users
+- belongs_to :users
 - belongs_to :items
-- belongs_to :addresses
+- has_one :destinations
