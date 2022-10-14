@@ -5,7 +5,7 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
   
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' 
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
   
   validates :nickname, presence: true
   validates :email, presence: true
@@ -15,14 +15,14 @@ class User < ApplicationRecord
   
    # 全角文字のバリデーション
   
-   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角文字を使用してください' } do
+   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/} do
     validates :first_name
     validates :last_name
   end
 
   # 全角カナのバリデーション
   
-  with_options presence: true, format: { with: /\A[\p{katakana}]+\z/, message: '全角カナを使用してください' } do
+  with_options presence: true, format: { with: /\A[\p{katakana}]+\z/} do
    validates :last_name_kana, presence: true
    validates :first_name_kana, presence: true
   end
