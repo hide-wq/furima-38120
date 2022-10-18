@@ -11,8 +11,23 @@ class Item < ApplicationRecord
       validates :delivery_day_id
       validates :prefecture_id
     end
+    validates :image
   end
 
   belongs_to :user
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :prefecture
+  belongs_to :sales_status
+  belongs_to :scheduled_derivery
+  belongs_to :shipping_cost
+
+  has_one_attached :image
+
+  private
+
+   def message_params
+     params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
+   end
 end
