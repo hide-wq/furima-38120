@@ -2,13 +2,12 @@ class Item < ApplicationRecord
   
   with_options presence: true do
     validates :name
-    validates :description
-    validates :price, numericality:{in: 300..9999999}
+    validates :info
+    validates :price, numericality:{only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
     with_options numericality: { other_than: 1 } do
       validates :category_id
       validates :sales_status_id
-      validates :delivery_load_id
-      validates :delivery_day_id
+      validates :scheduled_delivery_id
       validates :prefecture_id
       validates :shipping_fee_status_id
     end
@@ -25,9 +24,4 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee_status
   has_one_attached :image
 
-  private
-
-   def message_params
-     params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
-   end
 end
