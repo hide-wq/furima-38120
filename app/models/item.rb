@@ -10,6 +10,7 @@ class Item < ApplicationRecord
       validates :delivery_load_id
       validates :delivery_day_id
       validates :prefecture_id
+      validates :shipping_fee_status_id
     end
     validates :image
   end
@@ -21,8 +22,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :sales_status
   belongs_to :scheduled_derivery
-  belongs_to :shipping_cost
-#↑シッピングコストを修正
+  belongs_to :shipping_fee_status
   has_one_attached :image
 
   private
