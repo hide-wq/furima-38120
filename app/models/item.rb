@@ -6,7 +6,7 @@ class Item < ApplicationRecord
     validates :price, numericality:{in: 300..9999999}
     with_options numericality: { other_than: 1 } do
       validates :category_id
-      validates :condition_id
+      validates :sales_status_id
       validates :delivery_load_id
       validates :delivery_day_id
       validates :prefecture_id
@@ -22,7 +22,7 @@ class Item < ApplicationRecord
   belongs_to :sales_status
   belongs_to :scheduled_derivery
   belongs_to :shipping_cost
-
+#↑シッピングコストを修正
   has_one_attached :image
 
   private
