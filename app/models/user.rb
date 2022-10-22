@@ -3,10 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
 
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
-
+  has_many :items
+  
+         PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+         validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
+         
   validates :nickname, presence: true
 
   # 全角文字のバリデーション
@@ -23,4 +26,7 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
   validates :birthday, presence: true
+
+
 end
+
