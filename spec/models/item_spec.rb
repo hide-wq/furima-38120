@@ -101,9 +101,28 @@ RSpec.describe Item, type: :model do
       it '価格が空欄だと出品できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank", 'Price is not a number')
+        expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      
+      it "価格に半角数字以外が含まれている場合は出品できない" do
+        @item.price = "３３３３"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
+      it '価格が300円未満では出品できない' do
+        @item.price = 100
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+      end
+      it '価格が9_999_999円を超えると出品できない' do
+        @item.price = 10_000_000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+      end
+      it "ユーザー情報が紐づいていない時、登録することができない" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+      end
     end
   end
 end
