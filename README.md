@@ -36,7 +36,7 @@
 - has_one :order
 
 
-## destinations
+## payments
 
 | Column                | Type                | Options                       |
 |-----------------------|---------------------|-------------------------------|
@@ -62,4 +62,15 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :destination
+- has_one :payment
+
+## commentsテーブル
+| Column  | Type       | Options                        |
+| :-------| :----------| :------------------------------|
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+| text    | text       | null: false                    |
+
+### Association
+- belongs_to :user
+- belongs_to :item
