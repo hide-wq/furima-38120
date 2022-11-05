@@ -10,7 +10,7 @@ class OrderForm
     validates :prefecture_id, numericality: { other_than: 0}
     validates :city
     validates :addresses
-    validates :phone_number, format: { with: /\A[0-9]+{11}\z/}
+    validates :phone_number, format: { with: /\A[0-9]{11}\z/}
   end
 
   def save
