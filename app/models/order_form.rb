@@ -1,6 +1,6 @@
 class OrderForm
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number
+  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number, :token
 
   # ここにバリデーションの処理を書く
   with_options presence: true do
@@ -11,6 +11,7 @@ class OrderForm
     validates :city
     validates :addresses
     validates :phone_number, format: { with: /\A[0-9]{11}\z/}
+    validates :token
   end
 
   def save
