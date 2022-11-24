@@ -75,8 +75,10 @@ https://docs.google.com/spreadsheets/d/1_uQ9LlyJbgjtApiYatuTQF5SThoF_pxec7dVqGXK
 # 実装した機能についての画像やGIFおよびその説明
 
 **トップページ**
-
 <br>
+![トップページ](https://user-images.githubusercontent.com/81303735/203698162-beeee228-3ef4-4150-be21-47e092814f34.gif)
+<br>
+
 **1.ユーザー登録機能**
 <br>
 ユーザー登録することで出品・購入できるようになります。（ユーザー登録していない人でも出品している商品を見ることは可能です。）
