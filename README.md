@@ -76,6 +76,7 @@ https://docs.google.com/spreadsheets/d/1_uQ9LlyJbgjtApiYatuTQF5SThoF_pxec7dVqGXK
 
 **トップページ**
 
+<br>
 **1.ユーザー登録機能**
 <br>
 ユーザー登録することで出品・購入できるようになります。（ユーザー登録していない人でも出品している商品を見ることは可能です。）
