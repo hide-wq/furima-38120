@@ -114,6 +114,9 @@ https://docs.google.com/spreadsheets/d/1_uQ9LlyJbgjtApiYatuTQF5SThoF_pxec7dVqGXK
 
 # 画面遷移図	
 
+![画面遷移図](https://user-images.githubusercontent.com/81303735/203970333-9136752f-e52c-4db9-932b-db06b9f8dcba.png)
+
+
 # 開発環境
 - ruby 2.6.5
 - Rails 6.0.3.4
