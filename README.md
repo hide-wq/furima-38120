@@ -114,7 +114,7 @@ https://docs.google.com/spreadsheets/d/1_uQ9LlyJbgjtApiYatuTQF5SThoF_pxec7dVqGXK
 
 # 画面遷移図	
 
-![画面遷移図](https://user-images.githubusercontent.com/81303735/203970333-9136752f-e52c-4db9-932b-db06b9f8dcba.png)
+![画面遷移図](https://user-images.githubusercontent.com/81303735/203971267-39a6e36b-0863-4460-8f34-1b94ed821c1f.png)
 
 
 # 開発環境
