@@ -1,76 +1,107 @@
-## users
+# アプリケーション名
+**フリマアプリ**
 
-| Column                | Type                | Options                   |
-|-----------------------|---------------------|---------------------------|
-| nickname              | string              | null: false               |
-| email                 | string              | null: false, unique: true |
-| encrypted_password    | string              | null: false               |
-| last_name             | string              | null: false               |
-| first_name            | string              | null: false               |
-| last_name_kana        | string              | null: false               |
-| first_name_kana       | string              | null: false               |
-| birthday              | date                | null: false               |
+# アプリケーションの概要
+ユーザーを登録すると商品を出品できるようになります。自身が出品した商品は、編集と削除をすることができます。他のユーザーが出品した商品は、クレジットカードを用いて購入することができます。
 
-### Association
+# URL
+**heroku**
+<br>
+https://furima-38120.herokuapp.com/
 
-- has_many :items
-- has_many :orders
+**Basic認証**
+<br>
+  ID: admin
+<br>
+  Pass: 2222
 
-## items
+# テスト用アカウント
 
-| Column                | Type                | Options                       |
-|-----------------------|---------------------|-------------------------------|
-| user                  | references          | null: false, foreign_key: true|
-| name                  | string              | null: false                   |
-| info                  | text                | null: false                   |
-| category_id           | integer             | null: false                   |
-| sales_status_id       | integer             | null: false                   |
-| shipping_fee_status_id| integer             | null: false                   |
-| prefecture_id         | integer             | null: false                   |
-| scheduled_delivery_id | integer             | null: false                   |
-| price                 | integer             | null: false                   |
+**出品者用のメールアドレスとパスワード**
+<br>
+  email: test1@co.jp
+<br>
+  pass: 123456a
 
-### Association
+**購入者用のメールアドレスとパスワード**
+<br>
+  email: test@co.jp
+<br>
+  pass: 123456a
+<br>
+**購入用カード情報（PAYJPを利用しています）
+<br>
+購入用カード情報(PAYJPテスト用)
+<br>
+番号：4242424242424242
+<br>
+期限：3月/（20）22年（未来の年月であれば可能）
+<br>
+セキュリティコード：123
+<br>
+<br>
+# 利用方法
+<br>
+**トップページから、新規登録又は、ログインをお願いします。(登録無しの場合は閲覧のみになります）**
+<br>
+**出品をする場合**
+<br>
+1.ログイン状態でトップページ下部の出品ボタンをクリックして下さい。
+<br>
+2.出品ページに画面遷移後、必要な情報を入力した上で出品ボタンを押すことで商品を登録できます。
+<br>
+**購入をする場合**
+<br>
+1.出品したアカウントとは別のアカウントをお使いください。
+<br>
+2.トップページから購入したい商品をクリックしてください。
+<br>
+3.購入ページへ画面遷移後、必要な情報を入力して購入ボタンを押すと商品の購入ができます。<br>
+※PAYJPのサービスでテスト用のカード情報を記載しているのでそちらを利用して購入をお願いいたします。<br>
 
-- belongs_to :user
-- has_one :order
+# アプリケーションを作成した背景	
+<br>
+PCやスマートフォンを持っている誰もが"簡単"にモノの売り買いを楽しめる様なプラットフォームを提供したいと考え作成しました。
+<br>
 
+# 洗い出した要件	
+**Googleスプレッドシート**
+<br>
+https://docs.google.com/spreadsheets/d/1_uQ9LlyJbgjtApiYatuTQF5SThoF_pxec7dVqGXKq2I/edit#gid=1148367473
 
-## payments
+# 実装した機能についての画像やGIFおよびその説明
 
-| Column                | Type                | Options                       |
-|-----------------------|---------------------|-------------------------------|
-| order                 | references          | null: false, foreign_key: true|
-| postal_code           | string              | null: false                   |
-| prefecture_id         | integer             | null: false                   |
-| city                  | string              | null: false                   |
-| addresses             | string              | null: false                   |
-| building              | string              |                               |
-| phone_number          | string              | null: false                   |
+**トップページ**
+![0 top_page](https://user-images.githubusercontent.com/68714247/107143736-15f16400-697a-11eb-911c-9740a99dda4f.gif)
 
-### Association
+**1.ユーザー登録機能**
+<br>
+ユーザー登録することで出品・購入できるようになります。（ユーザー登録していない人でも出品している商品を見ることは可能です。）
 
-- belongs_to :order
+**2.商品出品機能**
+<br>
+商品画像を選択し、商品情報や販売したい金額を入力すると、出品することができます。（JavaScriptで販売手数料が表示されるようになっています。）
 
-## orders
-| Column                | Type                | Options                       |
-|-----------------------|---------------------|-------------------------------|
-| user                  | references          | null: false, foreign_key: true|
-| item                  | references          | null: false, foreign_key: true|
+**3.商品の編集機能**
+<br>
+出品した商品について、編集することができます。その際に、ユーザーの手間を省くため出品時の情報が表示されるようになっています。
 
-### Association
+**4.商品の削除機能**
+<br>
+出品中であった商品について、削除ボタンを押すことで商品を削除することができます。
 
-- belongs_to :user
-- belongs_to :item
-- has_one :payment
+**5.商品の購入機能**
+<br>
+出品者以外であれば、商品を購入することができます。カード情報と配送先を入力すると購入できます。（JavaScriptとフォームオブジェクトを使用し、トークン化したカード情報をPAY.JPに送付しつつ、カード情報がアプリケーションのデータベースに保存されないように設計しています。）
 
-## commentsテーブル
-| Column  | Type       | Options                        |
-| :-------| :----------| :------------------------------|
-| user    | references | null: false, foreign_key: true |
-| item    | references | null: false, foreign_key: true |
-| text    | text       | null: false                    |
+# 実装予定の機能
 
-### Association
-- belongs_to :user
-- belongs_to :item
+# データベース設計
+
+# 画面遷移図	
+
+# 開発環境
+
+# ローカルでの動作方法
+
+# 工夫したポイント
