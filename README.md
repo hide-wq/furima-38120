@@ -17,7 +17,7 @@ https://furima-38120.onrender.com/
   ・ID: admin
 <br>
   ・Pass: 2222
->>>>>>> e6ae27cf428927667256d0148d0c78c563706904
+
 
 # テスト用アカウント
 
@@ -65,7 +65,7 @@ https://furima-38120.onrender.com/
 3.購入ページへ画面遷移後、必要な情報を入力して購入ボタンを押すと商品の購入ができます。<br>
 ※PAYJPのサービスでテスト用のカード情報を記載しているのでそちらを利用して購入をお願いいたします。<br>
 
->>>>>>> e6ae27cf428927667256d0148d0c78c563706904
+
 # アプリケーションを作成した背景	
 <br>
 PCやスマートフォンを持っている誰もが"簡単"にモノの売り買いを楽しめる様なプラットフォームを提供したいと考え作成しました。
@@ -112,7 +112,7 @@ https://docs.google.com/spreadsheets/d/1_uQ9LlyJbgjtApiYatuTQF5SThoF_pxec7dVqGXK
 # データベース設計
 
 ![test](https://user-images.githubusercontent.com/81303735/203699026-6bea0de1-9f02-4750-997b-dbccae7d149e.png)
->>>>>>> e6ae27cf428927667256d0148d0c78c563706904
+
 
 # 洗い出した要件	
 **Googleスプレッドシート**
@@ -140,4 +140,4 @@ https://docs.google.com/spreadsheets/d/1_uQ9LlyJbgjtApiYatuTQF5SThoF_pxec7dVqGXK
 ```
 # 工夫したポイント
 - 開発の際にissueを分けることで作業内容・工程を明確化したところです。
->>>>>>> e6ae27cf428927667256d0148d0c78c563706904
+
